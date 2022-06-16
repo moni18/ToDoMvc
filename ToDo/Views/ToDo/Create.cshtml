@@ -1,0 +1,34 @@
+﻿@model Data.Domain.Models.ToDoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 align="center">todos</h1>
+
+<hr />
+<div style="text-align:center">
+    <div >
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger" ></div>          
+            <div class="form-group" >                
+                <input asp-for="Name" class="form-control" placeholder="What needs to be done?"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>          
+            <div class="form-group form-check" style="display:block;">                
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Complete" /> @Html.DisplayNameFor(model => model.Complete)
+                </label>
+            </div>          
+            @*<div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>*@
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
